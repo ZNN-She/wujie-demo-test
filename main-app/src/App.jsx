@@ -15,6 +15,7 @@ function App() {
   });
 
   useEffect(() => {
+    // 接收子应用改变路由的信息
     bus.$on("wujie.subAppRouterChange", navigateFn);
 
     return () => {

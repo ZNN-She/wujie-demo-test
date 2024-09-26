@@ -13,6 +13,7 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
+    // 这里处理刷新的时候判断跳转到哪个页面
     console.log('window.location.pathname', window.parent.location.pathname, location.pathname)
     if(window.parent.location.pathname !== location.pathname){
       navigate(window.parent.location.pathname)
@@ -20,6 +21,7 @@ function App() {
   }, [])
 
   useEffect(() => {
+    // 接收主应用改变路由的信息
     bus.$on("wujie.mainAppRouterChange", mainAppRouterChange);
     return () => {
       bus.$off("wujie.mainAppRouterChange", mainAppRouterChange);
